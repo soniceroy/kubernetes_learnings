@@ -1,0 +1,29 @@
+# Start/update resource(s) cluster with a yaml config
+kubectl apply -f config.yaml
+
+# View pods
+kubectl get pods
+
+# View the logs of a pod
+kubectl logs -f podname
+
+# remove all pod resources from the cluster
+kubectl delete -f config.yaml
+
+# delete a pod
+#  the pod will come back up if there
+#   is a deployment attached to it.
+kubectl delete pod podname
+
+# View deployments
+kubectl get deployments
+# example output
+#  NAME               DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+#  gitea-deployment   1         1         1            1           4m
+
+# forward port from a pod to localhost for debugging
+## grab the name of the active pod
+PODNAME=$(kubectl get pods --output=template \
+  --template="{{with index .items 0}}{{.metadata.name}}{{end}}")
+## open a port-forward session to the pod
+kubectl port-forward $PODNAME 3000:3000

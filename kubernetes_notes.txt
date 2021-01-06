@@ -1,0 +1,31 @@
+definitions:
+  nodes- smallest unit of computer hardware
+         abstracts the hardware to ram and cpu capacity
+  cluster- nodes that work together to form an abstracted machine
+         eg. a cluster has two nodes with cpu of 1 and ram of 1, 
+             therefore the cluster has cpu of 2 and ram of 2
+           nodes pool resources in a cluster to do the work
+  persistent volume - storage attached to the cluster (not to a particular node)
+  containers - packaged programs
+  pod - collection of one or more containers that shares the same resources and
+        local network the unit of replication in kubernetes. to manage load,
+        kubernetes can deploy a replica of the pod.
+        **pods is the the unit of scale, therefore, 
+  side-car - helper containers in a pod.
+  deployment - management of one or more pods. basically declares how many replicas are
+               made for each pod.
+  ingress - open channel for communication into the cluster, and between pods. 
+  Service - kubernetes resources that provide things like loadbalancing, etc.
+
+
+tools:
+  kubectl- command that interacts with the kubernetes api. create, update, delete
+           resources (eg: pods, deployments, load balancers). **platform agnostic,
+           though, so provisioning is handled elsewhere.
+  minikube- provisions a one node cluster on a local machine.
+
+questions:
+  how does aws load balancing fit in? load balancing will be outside eks and within the kubernetes pod.
+  how to add ingress channels? 
+    is it possible through the config yaml?
+  

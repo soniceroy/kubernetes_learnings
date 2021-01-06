@@ -1,0 +1,12 @@
+# just a pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gitea-pod
+spec:
+  # because default container runtime is docker, 
+  # it will find the container on docker
+  containers:
+    - name: gitea-container
+      image: gitea/gitea:1.4
+ 
