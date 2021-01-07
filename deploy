@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# use this in a seperate terminal, because it has to 
+# remain open for tunneling
+
+for KUBE_CONFIG in ./deployments/*
+do
+  kubectl apply -f ${KUBE_CONFIG} &
+done
+
+# to allow ingress with minikube
+# Keep this open while working
+minikube tunnel --cleanup

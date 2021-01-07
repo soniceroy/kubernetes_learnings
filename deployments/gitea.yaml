@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitea-deployment
@@ -33,7 +33,7 @@ spec:
   ports:
     - protocol: TCP
       targetPort: 3000
-      port: 80
+      port: 8008
       name: http
     - protocol: TCP
       targetPort: 22

@@ -27,3 +27,11 @@ PODNAME=$(kubectl get pods --output=template \
   --template="{{with index .items 0}}{{.metadata.name}}{{end}}")
 ## open a port-forward session to the pod
 kubectl port-forward $PODNAME 3000:3000
+
+# view the services (network enablements)
+kubectl get services
+*** minikube requires additional tunneling for external-ips(ingress) to work
+### in a seperate terminal
+minikube tunnel # keep this running
+### if the tunnel shuts down abruptly
+minikube tunnel --cleanup
